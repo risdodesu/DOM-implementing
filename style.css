@@ -1,0 +1,143 @@
+/* Search Bar Styles */
+.search-box{
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 14px 18px;
+    border-radius: 40px;
+}
+
+.search-icon{
+    color: #404258;
+}
+
+.search-input{
+    transition: 0.5s;
+    width: 0px;
+    overflow: hidden;
+}
+
+.search-box:hover .search-input{
+    width: 200px;
+    margin-left: 20px;
+}
+
+.input{
+    border: none;
+    outline: none;
+}
+/* ----------------------------- */
+
+/* Breadcrumb */
+.breadcrumb{
+    margin-left: 10px;
+    margin-top: 10px;
+}
+/* ----------------------------- */
+
+/* Alert */
+.alert{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+/* ----------------------------- */
+
+/* Card */
+.card{
+    transition: all 300ms ease;
+    cursor: pointer;
+}
+
+.card:hover{
+    transform: scale(1.1);
+}
+
+.card-img-top {
+    width: 100%;
+    height: 60vh;
+    object-fit: cover;
+}
+
+/* ----------------------------- */
+
+/* Parallax */
+.container-1{
+    height: 100vh;
+    perspective: 0px;
+    transform-style: preserve-3d;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.parallax{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+}
+
+.background{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+    transform: translateZ(-1px) scale(2.3);
+}
+
+.bg-1{
+    background: url(./images/Parallax/bg-1.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.content{
+    width: 100%;
+    height: 120vh;
+    background: #404258;
+    position: relative;
+    display: flex;
+}
+
+.parallax h1 {
+    margin: 0 auto;
+    width: 90%;
+    font-size: 100px;
+    font-weight: 900;
+    word-spacing: 100vw;
+    color: white;
+    text-align: left;
+    text-shadow: 0 10px 10px rgba(0,0,0,0.1);
+
+}
+
+.bg-2{
+    background: url(./images/Parallax/bg-2.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.bg-3{
+    background: url(./images/Parallax/bg-3.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+@media screen and (max-width : 500px){
+    .parallax h1 {
+        margin: 0 auto;
+        width: 90%;
+        font-size: 50px;
+        font-weight: 900;
+        word-spacing: 100vw;
+        color: white;
+        text-align: left;
+        text-shadow: 0 10px 10px rgba(0,0,0,0.1);
+    }
+}

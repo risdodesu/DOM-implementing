@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Marvel Cinema | Movies</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link 
+    rel="preconnect" 
+    href="https://fonts.gstatic.com" 
+    crossorigin><link 
+    href="https://fonts.googleapis.com/css2?family=Roboto&family=Work+Sans:wght@400;500&display=swap" 
+    rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" 
+    rel="stylesheet" 
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" 
+    crossorigin="anonymous">
+    
+    <script   script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" 
+    crossorigin="anonymous">
+    </script>
+
+    <!-- Internal Style -->
+    <style>
+        
+        *{
+        font-family: 'Roboto', sans-serif;
+        font-family: 'Work Sans', sans-serif;
+        scroll-behavior: smooth;
+        }
+        
+        body{
+        background-color: #404258;
+        }
+
+        @media screen and (max-width : 500px){
+          .social{
+            display: flex;
+            justify-content: center;
+          }
+        }
+
+        @media screen and (max-width : 991px){
+          .col-md-4{
+              margin-bottom: 20px;
+          }
+        }
+
+        .col-lg-2{
+        margin-top: 20px;
+        }
+
+        .card-img-top {
+        width: 100%;
+        height: 30vh;
+        object-fit: cover;
+        }
+
+        .modal-content{
+        color: white;
+        background-color: #212230;
+        }
+
+        .text-input{
+        border-radius: 20px;
+        }
+
+        .btn{
+        border-radius: 20px;
+        
+        }
+        .signup-btn{
+          text-decoration: none;
+          color: orange; 
+          transition: 0.2s;
+          width: 50%;
+        }
+
+        .signup-btn:hover{
+          background: #ffb700;
+          color: white;
+          width: 100%;
+          letter-spacing: 4px;
+          box-shadow: 0 0 5px #f4b803,
+                        0 0 25px #f4b803,
+                        0 0 50px #f4b803,
+                        0 0 100px #f4b803;
+        }
+
+        footer{
+        background-color: #212230;
+        color: white;
+        }
+
+        .social a{ 
+        color: inherit;
+        transition: all 200ms ease; 
+        }
+        
+        .social a:hover {
+        color:#00A0C6; 
+        text-decoration:none; 
+        cursor:pointer;
+        transform: scale(1.5);
+        }
+
+        .signin-btn {
+            color: #03e9f4;
+            overflow: hidden;
+            transition: 0.2s;
+            width: 50%;
+        }
+          
+          .signin-btn:hover {
+            background: #03e9f4;
+            color: #fff;
+            width: 100%;
+            letter-spacing: 4px;
+            box-shadow: 0 0 5px #03e9f4,
+                        0 0 25px #03e9f4,
+                        0 0 50px #03e9f4,
+                        0 0 100px #03e9f4;
+        }
+
+        .watch-btn{
+          text-decoration: none;
+          color: orange; 
+          transition: 0.2s;
+          width: 50%;
+        }
+
+        .watch-btn:hover{
+          background: #ffb700;
+          color: white;
+          width: 100%;
+          letter-spacing: 4px;
+          box-shadow: 0 0 5px #f4b803,
+                        0 0 25px #f4b803,
+                        0 0 50px #f4b803,
+                        0 0 100px #f4b803;
+        }
+
+        .container-1 h1{
+            margin-left: 10px;
+        }
+
+        @media screen and (max-width : 766px){
+        .container-1 h1{
+            text-align: center;
+        }
+        }
+
+        .up a{
+          color: white;
+          transition: 0.2s;
+        }
+        
+        .up a:hover{
+          color: #cdff03;
+          transform: scale(1.1);
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header class="sticky-top">
+      <nav class="navbar navbar-expand-lg navbar-dark shadow-lg" style="background-color: #212230;">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><span><img src="./images/Logo/marvel-logo.png" alt="marvel-logo" style="height: 40px; width: 150px;"></span> CINEMA</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="movie.html">Movies</a>
+              </li>
+              <li class="nav-item" type="button" data-bs-toggle="modal" data-bs-target="#signinModal">
+                <a class="nav-link" href="#">Login</a>
+              </li>
+            </ul>
+            <div class="search-box">
+              <div class="search-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
+              </div>
+              <div class="search-input">
+                <input type="text" class="input" placeholder="Search your movies..."> 
+              </div>
+            </div>  
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Breadcrumbs -->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item" ><a style="text-decoration: none; color: white;" href="index.html">Home</a></li>
+        <li class="breadcrumb-item" ><a style="text-decoration: none; color: white;" href="movie.html">Movies</a></li>
+      </ol>
+    </nav>
+
+     <!-- Content -->
+    <div class="container-1">
+    <h1 style="color: white;">THE INFINITY SAGA</h1>
+
+      <section class="content">
+        <div class="container">
+            <div style="margin-top: 10px; margin-left: 10px; display: flex; justify-content: center; color: white;"><h2>PHASE ONE</h2></div>
+          <div class="row">
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="card text-bg-dark" data-bs-toggle="modal" data-bs-target="#card-1">
+                  <img src="./images/ironman-2008.png" class="card-img-top" alt="ironman-2008">
+                  <div class="card-body">
+                    <h5 class="card-title text-truncate">Iron Man (2008)</h5>
+                  </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="card text-bg-dark">
+                  <img src="./images/the-incredible-hulk-2008.jpg" class="card-img-top" alt="the-incredible-hulk-2008" data-bs-toggle="modal" data-bs-target="#card-2">
+                  <div class="card-body">
+                    <h5 class="card-title text-truncate">The Incredible Hulk (2008)</h5>
+                  </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="card text-bg-dark">
+                  <img src="./images/ironman-2-2010.jpg" class="card-img-top" alt="ironman-2-2010">
+                  <div class="card-body">
+                    <h5 class="card-title text-truncate">Iron Man 2 (2010)</h5>
+                  </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="card text-bg-dark">
+                  <img src="./images/thor-2011.jpg" class="card-img-top" alt="thor-2011">
+                  <div class="card-body">
+                    <h5 class="card-title text-truncate">Thor (2011)</h5>
+                  </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="card text-bg-dark">
+                  <img src="./images/first-avenger-2011.jpg" class="card-img-top" alt="first-avenger-2011">
+                  <div class="card-body">
+                    <h5 class="card-title text-truncate">Captain America: The First Avenger (2011)</h5>
+                  </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="card text-bg-dark">
+                  <img src="./images/avengers-2012.jpg" class="card-img-top" alt="avengers-2012">
+                  <div class="card-body">
+                    <h5 class="card-title text-truncate">The Avengers (2012)</h5>
+                  </div>
+                </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 10px; margin-left: 10px; display: flex; justify-content: center; color: white;"><h2>PHASE TWO</h2></div>
+          <div class="row">
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="card text-bg-dark">
+                  <img src="./images/ironman-3-2013.jpg" class="card-img-top" alt="ironman-3-2013">
+                  <div class="card-body">
+                    <h5 class="card-title text-truncate">Iron Man 3 (2013)</h5>
+                  </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="card text-bg-dark">
+                  <img src="./images/thor-the-dark-world-2013.jpg" class="card-img-top" alt="thor-the-dark-world-2013">
+                  <div class="card-body">
+                    <h5 class="card-title text-truncate">Thor: The Dark World (2013)</h5>
+                  </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="card text-bg-dark">
+                  <img src="./images/winter-soldier-2014.jpg" class="card-img-top" alt="captain-america-the-winter-soldier-2014">
+                  <div class="card-body">
+                    <h5 class="card-title text-truncate">Captain America: The Winter Soldier (2014)</h5>
+                  </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="card text-bg-dark">
+                  <img src="./images/gotg-2014.jpg" class="card-img-top" alt="gotg-2014">
+                  <div class="card-body">
+                    <h5 class="card-title text-truncate">Guardians of the Galaxy (2014)</h5>
+                  </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="card text-bg-dark">
+                  <img src="./images/age-of-ultron-2015.jpg" class="card-img-top" alt="age-of-ultron-2015">
+                  <div class="card-body">
+                    <h5 class="card-title text-truncate">Avengers: Age of Ultron (2015)</h5>
+                  </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="card text-bg-dark">
+                  <img src="./images/ant-man-2015.jpg" class="card-img-top" alt="ant-man-2015">
+                  <div class="card-body">
+                    <h5 class="card-title text-truncate">Ant-Man (2015)</h5>
+                  </div>
+                </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 10px; margin-left: 10px; display: flex; justify-content: center; color: white;"><h2>PHASE THREE</h2></div>
+          <div class="row">
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="card text-bg-dark">
+                  <img src="./images/civil-war-2016.jpg" class="card-img-top" alt="civil-war-2016">
+                  <div class="card-body">
+                    <h5 class="card-title text-truncate">Captain America: Civil War (2016)</h5>
+                  </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="card text-bg-dark">
+                  <img src="./images/strange-2016.jpg" class="card-img-top" alt="strange-2016">
+                  <div class="card-body">
+                    <h5 class="card-title text-truncate">Doctor Strange (2016)</h5>
+                  </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="card text-bg-dark">
+                  <img src="./images/gotg-2017.jpg" class="card-img-top" alt="gotg-2017">
+                  <div class="card-body">
+                    <h5 class="card-title text-truncate">Guardians of the Galaxy Vol. 2 (2017)</h5>
+                  </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="card text-bg-dark">
+                  <img src="./images/homecoming-2017.jpg" class="card-img-top" alt="homecoming-2017">
+                  <div class="card-body">
+                    <h5 class="card-title text-truncate">Spider-Man: Homecoming (2017)</h5>
+                  </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="card text-bg-dark">
+                  <img src="./images/ragnarok-2017.jpg" class="card-img-top" alt="ragnarok-2017">
+                  <div class="card-body">
+                    <h5 class="card-title text-truncate">Thor: Ragnarok (2017)</h5>
+                  </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="card text-bg-dark">
+                  <img src="./images/black-phanter-2018.jpg" class="card-img-top" alt="black-phanter-2018">
+                  <div class="card-body">
+                    <h5 class="card-title text-truncate">Black Panther (2018)</h5>
+                  </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="card text-bg-dark">
+                  <img src="./images/infinity-war-2018.jpg" class="card-img-top" alt="infinity-war-2018">
+                  <div class="card-body">
+                    <h5 class="card-title text-truncate">Avengers: Infinity War (2018)</h5>
+                  </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="card text-bg-dark">
+                  <img src="./images/ant-man-and-the-wasp-2018.jpg" class="card-img-top" alt="ant-man-and-the-wasp-2018">
+                  <div class="card-body">
+                    <h5 class="card-title text-truncate">Ant-Man and the Wasp (2018)</h5>
+                  </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="card text-bg-dark">
+                  <img src="./images/captain-marvel-2019.jpg" class="card-img-top" alt="captain-marvel-2019">
+                  <div class="card-body">
+                    <h5 class="card-title text-truncate">Captain Marvel (2019)</h5>
+                  </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="card text-bg-dark">
+                  <img src="./images/end-game-2019.jpg" class="card-img-top" alt="end-game-2019">
+                  <div class="card-body">
+                    <h5 class="card-title text-truncate">Avengers: Endgame (2019)</h5>
+                  </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2 mb-5">
+              <div class="card text-bg-dark">
+                  <img src="./images/ffh-2019.jpg" class="card-img-top" alt="ffh-2019">
+                  <div class="card-body">
+                    <h5 class="card-title text-truncate">Spider-Man: Far From Home (2019)</h5>
+                  </div>
+                </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </div>
+      
+    <div class="container-1">
+    <h1 class="mt-5" style="color: white;">THE MULTIVERSE SAGA</h1>
+
+      <section class="content">
+        <div class="container mb-5">
+
+          <div style="margin-top: 10px; margin-left: 10px; display: flex; justify-content: center; color: white;"><h2>PHASE FOUR</h2></div>
+          <div class="row">
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="card text-bg-dark">
+                  <img src="./images/black-widow-2021.jpg" class="card-img-top" alt="black-widow-2021">
+                  <div class="card-body">
+                    <h5 class="card-title text-truncate">Black Widow (2021)</h5>
+                  </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="card text-bg-dark">
+                  <img src="./images/shang-chi-2021.jpg" class="card-img-top" alt="shang-chi-2021">
+                  <div class="card-body">
+                    <h5 class="card-title text-truncate">Shang-Chi and the Legend of the Ten Rings (2021)</h5>
+                  </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="card text-bg-dark">
+                  <img src="./images/eternals-2021.jpg" class="card-img-top" alt="eternals-2021">
+                  <div class="card-body">
+                    <h5 class="card-title text-truncate">Eternals (2021)</h5>
+                  </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="card text-bg-dark">
+                  <img src="./images/no-way-home-2021.jpg" class="card-img-top" alt="no-way-home-2021">
+                  <div class="card-body">
+                    <h5 class="card-title text-truncate">Spider-Man: No Way Home (2021)</h5>
+                  </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="card text-bg-dark">
+                  <img src="./images/doctor-strange-mom-2022.jpg" class="card-img-top" alt="doctor-strange-mom-2022">
+                  <div class="card-body">
+                    <h5 class="card-title text-truncate">Doctor Strange in the Multiverse of Madness (2022)</h5>
+                  </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="card text-bg-dark">
+                  <img src="./images/love-and-thunder-2022.jpg" class="card-img-top" alt="love-and-thunder-2022">
+                  <div class="card-body">
+                    <h5 class="card-title text-truncate">Thor: Love and Thunder (2022)</h5>
+                  </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="card text-bg-dark">
+                  <img src="./images/wakanda-forever-2022.jpg" class="card-img-top" alt="wakanda-forever-2022">
+                  <div class="card-body">
+                    <h5 class="card-title text-truncate">Black Panther: Wakanda Forever (2022)</h5>
+                  </div>
+                </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 10px; margin-left: 10px; display: flex; justify-content: center; color: white;"><h2>PHASE FIVE</h2></div>
+          <div class="row">
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="card text-bg-dark">
+                  <img src="./images/quantumania-2023.jpg" class="card-img-top" alt="quantumania-2023">
+                  <div class="card-body">
+                    <h5 class="card-title text-truncate">Ant-Man and the Wasp: Quantumania (2023)</h5>
+                  </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="card text-bg-dark">
+                  <img src="./images/gotg-2023.jpeg" class="card-img-top" alt="gotg-2023">
+                  <div class="card-body">
+                    <h5 class="card-title text-truncate">Guardians of the Galaxy Vol. 3 (2023)</h5>
+                  </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="card text-bg-dark">
+                  <img src="./images/the-marvels-2023.webp" class="card-img-top" alt="the-marvels-2023">
+                  <div class="card-body">
+                    <h5 class="card-title text-truncate">The Marvels (2023)</h5>
+                  </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="card text-bg-dark">
+                  <img src="./images/new-world-order.webp" class="card-img-top" alt="new-world-order">
+                  <div class="card-body">
+                    <h5 class="card-title text-truncate">Captain America: New World Order (2024)</h5>
+                  </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="card text-bg-dark">
+                  <img src="./images/thunderbold-2024.jpg" class="card-img-top" alt="thunderbold-2024">
+                  <div class="card-body">
+                    <h5 class="card-title text-truncate">Thunderbolts (2024)</h5>
+                  </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="card text-bg-dark">
+                  <img src="./images/blade-2024.jpg" class="card-img-top" alt="blade-2024">
+                  <div class="card-body">
+                    <h5 class="card-title text-truncate">Blade (2024)</h5>
+                  </div>
+                </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 10px; margin-left: 10px; display: flex; justify-content: center; color: white;"><h2>PHASE SIX</h2></div>
+          <div class="row">
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="card text-bg-dark">
+                  <img src="./images/deadpool-3-2024.jpg" class="card-img-top" alt="deadpool-3-2024">
+                  <div class="card-body">
+                    <h5 class="card-title text-truncate">Deadpool 3 (2024)</h5>
+                  </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="card text-bg-dark">
+                  <img src="./images/f4-2025.webp" class="card-img-top" alt="f4-2025">
+                  <div class="card-body">
+                    <h5 class="card-title text-truncate">Fantastic Four (2025)</h5>
+                  </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="card text-bg-dark">
+                  <img src="./images/avengers-kang-dynasty-2025.jpg_large" class="card-img-top" alt="avengers-kang-dynasty-2025">
+                  <div class="card-body">
+                    <h5 class="card-title text-truncate">Avengers: The Kang Dynasty (2025)</h5>
+                  </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2 mb-5">
+              <div class="card text-bg-dark">
+                  <img src="./images/secret-wars-2026.jpg" class="card-img-top" alt="secret-wars-2026">
+                  <div class="card-body">
+                    <h5 class="card-title text-truncate">Avengers: Secret Wars (2026)</h5>
+                  </div>
+                </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="signinModal" tabindex="-1" aria-labelledby="signinModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="text-center mt-3">LOGIN</div>
+            <div class="modal-body">
+              <div>
+                <input id="user" type="text" class="text-input form-control" placeholder="Input your username here" style="margin-bottom: 10px;">
+              </div>
+              <div>
+                <input id="pass" type="password" class="text-input form-control" placeholder="Input your password here">
+              </div>
+              <div class="mt-4 d-flex justify-content-center">
+                <!-- DOM Login -->
+                <button class="btn signin-btn" onclick="validateLogin()">Sign in</button>
+                <!-- DOM Login -->
+              </div>
+              <div class="d-flex justify-content-center">
+                <button class="btn signup-btn">Sign up</button>
+              </div>
+              <div class="m-3" style="text-align: center;">or</div>
+              <div class="d-flex justify-content-center flex-column gap-2">
+                  <button class="btn btn-dark d-flex align-items-center justify-content-center mb-12"><svg class="mr-10" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-google" viewBox="0 0 16 16">
+                      <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z"/>
+                  </svg>Continue With Google</button>
+                  <button class="btn btn-dark d-flex align-items-center justify-content-center mb-12"><svg class="mr-10" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#1976D2" class="bi bi-facebook" viewBox="0 0 16 16">
+                      <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+                  </svg>Continue With Facebook</button>
+                  <button class="btn btn-dark d-flex align-items-center justify-content-center mb-12"><svg class="mr-10" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-apple" viewBox="0 0 16 16">
+                      <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43Zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282Z"/>
+                      <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43Zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282Z"/>
+                  </svg>Continue With Apple</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- Card Modal -->
+    <div class="modal fade" id="card-1" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          
+          <div class="ratio ratio-16x9">
+            <iframe
+              width="560" height="315"
+              src="https://www.youtube.com/embed/KAE5ymVLmZg" 
+              title="YouTube video player" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <div class="d-flex flex-column m-2">
+            <details>
+              <summary>Iron Man (2008)</summary>
+              <p>Iron Man is a 2008 American superhero film based on the Marvel Comics character of the same name. Produced by Marvel Studios and distributed by Paramount Pictures,[a] it is the first film in the Marvel Cinematic Universe (MCU). Directed by Jon Favreau from a screenplay by the writing teams of Mark Fergus and Hawk Ostby, and Art Marcum and Matt Holloway, the film stars Robert Downey Jr. as Tony Stark / Iron Man alongside Terrence Howard, Jeff Bridges, Gwyneth Paltrow, Leslie Bibb, and Shaun Toub. In the film, following his escape from captivity by a terrorist group, world famous industrialist and master engineer Tony Stark builds a mechanized suit of armor and becomes the superhero Iron Man.</p>
+            </details>
+            <div class="d-flex justify-content-center">
+              <button class="btn watch-btn">Watch here</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="card-2" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          
+          <div class="ratio ratio-16x9">
+            <iframe 
+              width="560" height="315" 
+              src="https://www.youtube.com/embed/xbqNb2PFKKA" 
+              title="YouTube video player" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <div class="d-flex flex-column m-2">
+            <details>
+              <summary>The Incredible Hulk (2008)</summary>
+              <p>The Incredible Hulk is a 2008 American superhero film based on the Marvel Comics character the Hulk. Produced by Marvel Studios and distributed by Universal Pictures, it is the second film in the Marvel Cinematic Universe (MCU). It was directed by Louis Leterrier from a screenplay by Zak Penn, and stars Edward Norton as Bruce Banner alongside Liv Tyler, Tim Roth, William Hurt, Tim Blake Nelson, Ty Burrell, and Christina Cabot. In the film, Bruce Banner becomes the Hulk as an unwitting pawn in a military scheme to reinvigorate the "Super-Soldier" program through gamma radiation. Banner goes on the run from the military while attempting to cure himself of the Hulk.</p>
+            </details>
+            <div class="d-flex justify-content-center">
+              <button class="btn watch-btn">Watch here</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="container-fluid">
+      
+        <div class="row">
+          <div class="col-12 col-lg-6 mt-3">
+  
+            <a class="navbar-brand" href="#"><span><img src="./images/Logo/marvel-logo.png" alt="marvel-logo" style="height: 30px; width: 140px;"></span> CINEMA</a><br>
+            <caption>Marvel Studios, LLC adalah studio film Amerika yang berbasis di The Walt Disney Studios di Burbank, California dan merupakan anak perusahaan dari Walt Disney Studios, itu sendiri sebuah divisi yang dimiliki sepenuhnya dari The Walt Disney Company, dengan produser film Kevin Feige menjabat sebagai presiden.</caption>
+            <div class="d-flex flex-column gap-2 mt-2 justify-content-center">
+              <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
+                <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+              </svg> +628 1276 8553 18</span>
+              <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+                <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
+              </svg> risdodesu@gmail.com</span> 
+            </div>
+  
+            <div class="d-flex mt-3">
+              <h1 style="color: orange;">Our Social Media</h1>
+            </div>
+            <div class="social d-flex gap-3">
+              <a target="_blank" href="https://www.instagram.com/marvelstudios/"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+                <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+              </svg></a>
+              <a target="_blank" href="https://twitter.com/MarvelStudios"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+              </svg></a>
+              <a target="_blank" href="https://www.facebook.com/marvelstudios"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+              </svg></a>
+            </div>
+  
+          </div>
+  
+          <div class="col-12 col-lg-6 mt-3">
+            <h1 style="color: orange;">Contact Us</h1>
+            <div>
+              <input type="text" class="form-control" placeholder="Enter your name here" style="margin-bottom: 10px;">
+            </div>
+            <div>
+              <input type="text" class="form-control" placeholder="Enter your email here" style="margin-bottom: 10px;">
+            </div>
+            <div>
+              <textarea class="form-control" placeholder="Leave your comment here" id="floatingTextarea2" style="height: 100px; margin-bottom: 10px;"></textarea>
+            </div>
+
+            <!-- DOM Sumbit Button -->
+            <button onclick="popSubmit()" id="submit" type="button" class="btn btn-primary btn-sm">Submit</button>
+            <!-- DOM Sumbit Button -->
+            
+            <div class="up d-flex mt-3 justify-content-end">
+                <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-up-circle" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
+                </svg></a>
+            </div>
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="col-12 mt-5 text-center">
+            Copyright &copy; 2023 by Risdo Lihardo Saragih. All Rights Reserved.
+          </div>
+        </div>
+  
+    </footer>
+    
+    <script src="./js/movie.js"></script>
+</body>
+</html>
