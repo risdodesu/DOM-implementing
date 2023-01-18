@@ -1,8 +1,6 @@
-Dear Mba Helena mentor dibimbing terbaik kedua bagi saya HEHE,
-
-Just info ya mba,
-untuk modal yang muncul pas klik card aku hanya pasang untuk card Iron man 2008 sama The Incredible Hulk 2008
-
-klo pake modal semua makin buanyakkk buanget ntar syntaxnya karena ga pake loping WKWK sakit mata lihatnya.
-
-Peace :D
+# DOM-implementing
+Mengimplementasi DOM pada mini project. Ditujukan untuk memenuhi syarat assignment Day 23 mengenai Javascript. 
+# Elemen yang menerapkan DOM pada miniproject
+1. Tombol Submit Contact Us pada index html dan movie html
+2. Tombol Sign In di Modal Login pada index html dan movie html
+3. h1 pada tiap section parallax
